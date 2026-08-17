@@ -771,5 +771,28 @@ body { color-scheme: light dark; }
   </svg>
 </a>
 
+<script>
+// Hide video background when scrolling past hero
+const videoBg = document.querySelector('.hero-video-bg');
+const heroSection = document.querySelector('.hero');
+
+function handleScroll() {
+  if (!videoBg || !heroSection) return;
+
+  const heroRect = heroSection.getBoundingClientRect();
+  const heroBottom = heroRect.bottom;
+
+  // Hide video when scrolled past the hero section
+  if (heroBottom < 0) {
+    videoBg.style.display = 'none';
+  } else {
+    videoBg.style.display = 'block';
+  }
+}
+
+window.addEventListener('scroll', handleScroll, { passive: true });
+handleScroll(); // Check on page load
+</script>
+
 </body>
 </html>
