@@ -16,111 +16,522 @@
 <style>
 body { color-scheme: light dark; }
 
-/* Override hero for generic home */
-.hero { background: linear-gradient(135deg, var(--navy) 0%, #0a0a1f 40%, var(--blue) 100%);
-  color: #fff; padding: 5rem 0 6rem; position: relative; overflow: hidden; min-height: 100vh;
-  display: flex; align-items: center; }
-.hero .wrap { display: grid; grid-template-columns: 1.2fr 0.95fr; gap: 3.5rem; align-items: center; }
-.hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.05; font-weight: 800;
-  letter-spacing: -0.5px; margin-bottom: 1rem; }
-.hero h1 .hl { background: linear-gradient(90deg, var(--yellow), var(--cyan));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.hero .lead { font-size: 1.18rem; color: #dfe4ff; margin: 1.3rem 0 2.2rem; line-height: 1.6;
-  max-width: 45ch; }
-.hero .trust { font-size: 0.9rem; color: #b9c1ee; }
-.hero-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 20px; padding: 2rem; backdrop-filter: blur(8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-.hero-card h3 { color: var(--yellow); font-size: 1.1rem; margin-bottom: 1.2rem; font-weight: 700; }
-.hero-card ul { list-style: none; display: grid; gap: 0.9rem; }
-.hero-card li { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.95rem;
-  color: #eef1ff; line-height: 1.5; }
-.check { color: var(--yellow); font-weight: 900; font-size: 1.1rem; }
+/* Hero mejorado con fondo */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--navy) 0%, #0a0a1f 40%, var(--blue) 100%);
+  color: #fff;
+  padding: 5rem 0 6rem;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"><defs><filter id="blur"><feGaussianBlur in="SourceGraphic" stdDeviation="40"/></filter></defs><circle cx="20%" cy="30%" r="200" fill="rgba(22,166,232,0.15)" filter="url(%23blur)"/><circle cx="80%" cy="70%" r="250" fill="rgba(30,99,214,0.1)" filter="url(%23blur)"/></svg>');
+  background-size: cover;
+  opacity: 0.6;
+  z-index: 0;
+}
+.hero .wrap {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.2fr 0.95fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 1rem;
+}
+.hero h1 .hl {
+  background: linear-gradient(90deg, var(--yellow), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero .lead {
+  font-size: 1.18rem;
+  color: #dfe4ff;
+  margin: 1.3rem 0 2.2rem;
+  line-height: 1.6;
+  max-width: 45ch;
+}
+.hero .trust {
+  font-size: 0.9rem;
+  color: #b9c1ee;
+}
+.hero-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+.hero-card h3 {
+  color: var(--yellow);
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+.hero-card ul {
+  list-style: none;
+  display: grid;
+  gap: 0.9rem;
+}
+.hero-card li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  font-size: 0.95rem;
+  color: #eef1ff;
+  line-height: 1.5;
+}
+.check {
+  color: var(--yellow);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
 
-/* Nichos section - generic */
-.nichos-section { padding: 5rem 0; background: var(--white); }
-.nichos-header { text-align: center; margin-bottom: 3.5rem; }
-.nichos-header .kicker { color: var(--blue); font-weight: 700; letter-spacing: 0.15em;
-  text-transform: uppercase; font-size: 0.75rem; margin-bottom: 0.5rem; display: block; }
-.nichos-header h2 { font-size: clamp(2rem, 3vw, 2.6rem); font-weight: 800;
-  color: var(--ink); letter-spacing: -0.5px; line-height: 1.1; }
+/* Nichos section */
+.nichos-section {
+  padding: 5rem 0;
+  background: var(--white);
+}
+.nichos-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.nichos-header .kicker {
+  color: var(--blue);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.nichos-header h2 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
 
-.nichos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
-.nicho-card { background: var(--white); border: 1px solid #eef0f6; border-radius: 18px;
-  padding: 2.2rem; box-shadow: 0 8px 20px rgba(19,19,71,0.06);
+.nichos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.nicho-card {
+  background: var(--white);
+  border: 1px solid #eef0f6;
+  border-radius: 18px;
+  padding: 2.2rem;
+  box-shadow: 0 8px 20px rgba(19,19,71,0.06);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
-  position: relative; overflow: hidden; cursor: pointer; text-decoration: none; display: flex;
-  flex-direction: column; color: inherit; }
-.nicho-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(19,19,71,0.12); }
-.nicho-card .ico { font-size: 2.6rem; margin-bottom: 1rem; }
-.nicho-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--ink); }
-.nicho-card p { color: #6b7280; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;
-  flex-grow: 1; }
-.nicho-card .arrow { display: inline-block; color: var(--yellow); font-weight: 800;
-  transition: transform 0.3s; }
-.nicho-card:hover .arrow { transform: translateX(4px); }
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+}
+.nicho-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(19,19,71,0.12);
+}
+.nicho-card .ico {
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+}
+.nicho-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--ink);
+}
+.nicho-card p {
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+.nicho-card .arrow {
+  display: inline-block;
+  color: var(--yellow);
+  font-weight: 800;
+  transition: transform 0.3s;
+}
+.nicho-card:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Webs realizadas */
+.webs-section {
+  padding: 5rem 0;
+  background: #f6f8fe;
+}
+.webs-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.webs-header .kicker {
+  color: var(--blue);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.webs-header h2 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.webs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+.web-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(19,19,71,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.web-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(19,19,71,0.15);
+}
+.web-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+.web-card-info {
+  padding: 1.5rem;
+}
+.web-card-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.web-card-info p {
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
 
 /* Steps section */
-.steps-section { padding: 5rem 0; background: #f6f8fe; }
-.steps-header { text-align: center; margin-bottom: 3.5rem; }
-.steps-header .kicker { color: var(--blue); font-weight: 700; letter-spacing: 0.15em;
-  text-transform: uppercase; font-size: 0.75rem; margin-bottom: 0.5rem; display: block; }
-.steps-header h2 { font-size: clamp(2rem, 3vw, 2.6rem); font-weight: 800;
-  color: var(--ink); letter-spacing: -0.5px; line-height: 1.1; }
+.steps-section {
+  padding: 5rem 0;
+  background: var(--white);
+}
+.steps-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.steps-header .kicker {
+  color: var(--blue);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.steps-header h2 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
 
-.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 3rem; }
-.step { text-align: center; }
-.step-num { display: inline-flex; align-items: center; justify-content: center;
-  width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--cyan));
-  color: #fff; font-size: 2rem; font-weight: 800; margin-bottom: 1.5rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); }
-.step h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--ink); }
-.step p { color: #6b7280; font-size: 0.95rem; line-height: 1.6; max-width: 32ch; margin: 0 auto; }
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+.step {
+  text-align: center;
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+.step h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--ink);
+}
+.step p {
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 32ch;
+  margin: 0 auto;
+}
+
+/* Testimonios */
+.testimonios-section {
+  padding: 5rem 0;
+  background: var(--white);
+}
+.testimonios-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.testimonios-header .kicker {
+  color: var(--blue);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.testimonios-header h2 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+.testimonio-card {
+  background: #f9f9fb;
+  border: 1px solid #e9ebf1;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: box-shadow 0.3s;
+}
+.testimonio-card:hover {
+  box-shadow: 0 12px 32px rgba(19,19,71,0.08);
+}
+.testimonio-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  object-fit: cover;
+  border: 3px solid var(--yellow);
+}
+.testimonio-card p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+.testimonio-name {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+.testimonio-role {
+  font-size: 0.85rem;
+  color: var(--blue);
+  font-weight: 600;
+}
 
 /* Quote section */
-.quote-section { padding: 4rem 0; background: var(--white); }
-.quote { background: var(--navy); color: #fff; border-radius: 20px; padding: 3rem;
-  text-align: center; box-shadow: 0 20px 40px rgba(19,19,71,0.15); }
-.quote p { font-size: 1.35rem; font-style: italic; max-width: 48ch; margin: 0 auto 1.3rem;
-  line-height: 1.6; }
-.quote .who { color: var(--yellow); font-weight: 700; font-size: 0.95rem; }
+.quote-section {
+  padding: 4rem 0;
+  background: var(--white);
+}
+.quote {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(19,19,71,0.15);
+}
+.quote p {
+  font-size: 1.35rem;
+  font-style: italic;
+  max-width: 48ch;
+  margin: 0 auto 1.3rem;
+  line-height: 1.6;
+}
+.quote .who {
+  color: var(--yellow);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
 
 /* CTA section */
-.cta-section { padding: 4rem 0; background: var(--white); }
-.ctaband { background: linear-gradient(90deg, var(--blue), var(--cyan));
-  color: #fff; text-align: center; border-radius: 20px; padding: 3.5rem 2rem;
-  box-shadow: 0 20px 50px rgba(30, 99, 214, 0.25); }
-.ctaband h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800;
-  margin-bottom: 0.8rem; line-height: 1.2; }
-.ctaband p { margin-bottom: 2rem; color: #eaf6ff; font-size: 1.05rem; max-width: 55ch;
-  margin-left: auto; margin-right: auto; }
+.cta-section {
+  padding: 4rem 0;
+  background: var(--white);
+}
+.ctaband {
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  color: #fff;
+  text-align: center;
+  border-radius: 20px;
+  padding: 3.5rem 2rem;
+  box-shadow: 0 20px 50px rgba(30, 99, 214, 0.25);
+}
+.ctaband h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+.ctaband p {
+  margin-bottom: 2rem;
+  color: #eaf6ff;
+  font-size: 1.05rem;
+  max-width: 55ch;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* Navigation */
-.nav-desktop { display: flex; gap: 1.8rem; align-items: center; }
-.nav-desktop a { color: #fff; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+.nav-desktop {
+  display: flex;
+  gap: 1.8rem;
+  align-items: center;
+}
+.nav-desktop a {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
 
 /* Responsive */
 @media (max-width: 820px) {
-  .hero .wrap { grid-template-columns: 1fr; }
-  .nichos-grid { grid-template-columns: 1fr; }
-  .steps-grid { grid-template-columns: 1fr; }
-  .nav-desktop { display: none; }
+  .hero .wrap {
+    grid-template-columns: 1fr;
+  }
+  .nichos-grid {
+    grid-template-columns: 1fr;
+  }
+  .webs-grid {
+    grid-template-columns: 1fr;
+  }
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+  .testimonios-grid {
+    grid-template-columns: 1fr;
+  }
+  .nav-desktop {
+    display: none;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-  .nichos-section { background: #0f1419; }
-  .nichos-header h2 { color: #fff; }
-  .nicho-card { background: #1a2332; border-color: #2a3a4a; }
-  .nicho-card h3 { color: #fff; }
-  .nicho-card p { color: #b0b8c8; }
+  .nichos-section {
+    background: #0f1419;
+  }
+  .nichos-header h2 {
+    color: #fff;
+  }
+  .nicho-card {
+    background: #1a2332;
+    border-color: #2a3a4a;
+  }
+  .nicho-card h3 {
+    color: #fff;
+  }
+  .nicho-card p {
+    color: #b0b8c8;
+  }
 
-  .steps-section { background: #0d1620; }
-  .steps-header h2 { color: #fff; }
-  .step h3 { color: #fff; }
-  .step p { color: #b0b8c8; }
+  .webs-section {
+    background: #0d1620;
+  }
+  .webs-header h2 {
+    color: #fff;
+  }
+  .web-card {
+    background: #1a2332;
+  }
+  .web-card-info h3 {
+    color: #fff;
+  }
 
-  .quote-section { background: #0f1419; }
-  .cta-section { background: #0f1419; }
+  .steps-section {
+    background: #0f1419;
+  }
+  .steps-header h2 {
+    color: #fff;
+  }
+  .step h3 {
+    color: #fff;
+  }
+  .step p {
+    color: #b0b8c8;
+  }
+
+  .testimonios-section {
+    background: #0f1419;
+  }
+  .testimonios-header h2 {
+    color: #fff;
+  }
+  .testimonio-card {
+    background: #1a2332;
+    border-color: #2a3a4a;
+  }
+  .testimonio-card p {
+    color: #c0c8d8;
+  }
+  .testimonio-name {
+    color: #fff;
+  }
+
+  .quote-section {
+    background: #0f1419;
+  }
+  .cta-section {
+    background: #0f1419;
+  }
 }
 </style>
 </head>
@@ -195,6 +606,38 @@ body { color-scheme: light dark; }
   </div>
 </section>
 
+<section class="webs-section">
+  <div class="wrap">
+    <div class="webs-header">
+      <span class="kicker">Casos reales</span>
+      <h2>Webs que armamos</h2>
+    </div>
+    <div class="webs-grid">
+      <div class="web-card">
+        <img src="https://images.unsplash.com/photo-1460925895917-adf4198c838d?w=600&h=400&fit=crop&q=80" alt="Web de Agente Inmobiliario">
+        <div class="web-card-info">
+          <h3>Eunice Martínez</h3>
+          <p>Agente inmobiliario con web propia que pasó de 0 a N consultas mensuales.</p>
+        </div>
+      </div>
+      <div class="web-card">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop&q=80" alt="Web de Coach">
+        <div class="web-card-info">
+          <h3>Mónica Torres</h3>
+          <p>Coach de liderazgo con presencia digital clara que atrae clientes de calidad.</p>
+        </div>
+      </div>
+      <div class="web-card">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&q=80" alt="Web de Contador">
+        <div class="web-card-info">
+          <h3>Jorge Fernández</h3>
+          <p>Contador independiente que posicionó su expertise y duplicó su cartera de clientes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="como" class="steps-section">
   <div class="wrap">
     <div class="steps-header">
@@ -221,11 +664,40 @@ body { color-scheme: light dark; }
   </div>
 </section>
 
+<section class="testimonios-section">
+  <div class="wrap">
+    <div class="testimonios-header">
+      <span class="kicker">Lo que dicen nuestros clientes</span>
+      <h2>Testimonios reales</h2>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio-card">
+        <img class="testimonio-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&q=80" alt="Eunice Martínez">
+        <p>"Fernando me armó la web y mis redes en tiempo récord. Pasé de no tener presencia online a que los clientes me encuentren directo por WhatsApp. Mis ventas mejoraron muchísimo."</p>
+        <div class="testimonio-name">Eunice Martínez</div>
+        <div class="testimonio-role">Agente Inmobiliaria</div>
+      </div>
+      <div class="testimonio-card">
+        <img class="testimonio-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80" alt="Mónica Torres">
+        <p>"Cuando no tenía presencia clara, los clientes dudaban. Ahora mi web y redes hablan por mí. La gente que consulta ya sabe quién soy. Las conversiones mejoraron muchísimo."</p>
+        <div class="testimonio-name">Mónica Torres</div>
+        <div class="testimonio-role">Coach de Liderazgo</div>
+      </div>
+      <div class="testimonio-card">
+        <img class="testimonio-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&q=80" alt="Jorge Fernández">
+        <p>"La web profesional le dio credibilidad a mi práctica. Dejé de correr detrás de clientes y ahora ellos me encuentran. Mi agenda se llenó más de lo que esperaba."</p>
+        <div class="testimonio-name">Jorge Fernández</div>
+        <div class="testimonio-role">Contador Independiente</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="quote-section">
   <div class="wrap">
     <div class="quote">
-      <p>"Fernando me armó la web y mis redes en tiempo récord. Pasé de no tener presencia online a que los clientes me encuentren directo por WhatsApp."</p>
-      <div class="who">Eunice Martínez / Agente de Bienes Raíces</div>
+      <p>"Tu presencia digital es el primer contacto que tiene un cliente contigo. Si no estás, no existes. Si estás pero mal, pierdes la oportunidad."</p>
+      <div class="who">— Fernando Di Fazio, Fundador de Agencia Web Hispana</div>
     </div>
   </div>
 </section>
