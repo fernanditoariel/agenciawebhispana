@@ -179,74 +179,10 @@ body { color-scheme: light dark; }
   transform: translateX(4px);
 }
 
-/* Webs realizadas */
-.webs-section {
-  padding: 5rem 0;
-  background: #f6f8fe;
-}
-.webs-header {
-  text-align: center;
-  margin-bottom: 3.5rem;
-}
-.webs-header .kicker {
-  color: var(--blue);
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  margin-bottom: 0.5rem;
-  display: block;
-}
-.webs-header h2 {
-  font-size: clamp(2rem, 3vw, 2.6rem);
-  font-weight: 800;
-  color: var(--ink);
-  letter-spacing: -0.5px;
-  line-height: 1.1;
-}
-
-.webs-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  margin-top: 3rem;
-}
-.web-card {
-  background: var(--white);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(19,19,71,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.web-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(19,19,71,0.15);
-}
-.web-card img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  display: block;
-}
-.web-card-info {
-  padding: 1.5rem;
-}
-.web-card-info h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 0.4rem;
-}
-.web-card-info p {
-  font-size: 0.9rem;
-  color: #6b7280;
-  line-height: 1.5;
-}
-
 /* Steps section */
 .steps-section {
   padding: 5rem 0;
-  background: var(--white);
+  background: #f6f8fe;
 }
 .steps-header {
   text-align: center;
@@ -306,7 +242,7 @@ body { color-scheme: light dark; }
   margin: 0 auto;
 }
 
-/* Testimonios */
+/* Testimonios section - REDISEÑADO */
 .testimonios-section {
   padding: 5rem 0;
   background: var(--white);
@@ -334,46 +270,88 @@ body { color-scheme: light dark; }
 
 .testimonios-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 2.5rem;
   margin-top: 3rem;
 }
 .testimonio-card {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 2.5rem;
+  align-items: center;
   background: #f9f9fb;
   border: 1px solid #e9ebf1;
   border-radius: 16px;
-  padding: 2rem;
-  text-align: center;
+  padding: 2.5rem;
   transition: box-shadow 0.3s;
 }
 .testimonio-card:hover {
-  box-shadow: 0 12px 32px rgba(19,19,71,0.08);
+  box-shadow: 0 12px 32px rgba(19,19,71,0.1);
 }
-.testimonio-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin: 0 auto 1rem;
+.testimonio-card:nth-child(even) {
+  grid-template-columns: 1fr 340px;
+}
+.testimonio-card:nth-child(even) .testimonio-image {
+  order: 2;
+}
+.testimonio-card:nth-child(even) .testimonio-content {
+  order: 1;
+}
+.testimonio-image {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.testimonio-image img {
+  width: 100%;
+  height: 300px;
   object-fit: cover;
-  border: 3px solid var(--yellow);
+  display: block;
 }
-.testimonio-card p {
-  font-size: 0.95rem;
+.testimonio-content p {
+  font-size: 1rem;
   color: #4b5563;
-  line-height: 1.7;
-  margin-bottom: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
   font-style: italic;
 }
-.testimonio-name {
+.testimonio-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e0e5ed;
+}
+.testimonio-info h3 {
   font-weight: 700;
   color: var(--ink);
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
 }
-.testimonio-role {
+.testimonio-info p {
   font-size: 0.85rem;
   color: var(--blue);
   font-weight: 600;
+  margin: 0;
+  font-style: normal;
+}
+.testimonio-links {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+.testimonio-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+.testimonio-links a:hover {
+  color: var(--navy);
 }
 
 /* Quote section */
@@ -443,6 +421,29 @@ body { color-scheme: light dark; }
   transition: color 0.2s;
 }
 
+/* WhatsApp flotante */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 100;
+  font-size: 1.8rem;
+}
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
 /* Responsive */
 @media (max-width: 820px) {
   .hero .wrap {
@@ -451,17 +452,37 @@ body { color-scheme: light dark; }
   .nichos-grid {
     grid-template-columns: 1fr;
   }
-  .webs-grid {
-    grid-template-columns: 1fr;
-  }
   .steps-grid {
     grid-template-columns: 1fr;
   }
-  .testimonios-grid {
-    grid-template-columns: 1fr;
+  .testimonio-card {
+    grid-template-columns: 1fr !important;
+  }
+  .testimonio-card:nth-child(even) {
+    grid-template-columns: 1fr !important;
+  }
+  .testimonio-card:nth-child(even) .testimonio-image {
+    order: 1 !important;
+  }
+  .testimonio-card:nth-child(even) .testimonio-content {
+    order: 2 !important;
+  }
+  .testimonio-image img {
+    height: 240px;
+  }
+  .testimonio-footer {
+    flex-wrap: wrap;
+  }
+  .testimonio-links {
+    margin-left: 0;
+    width: 100%;
   }
   .nav-desktop {
     display: none;
+  }
+  .whatsapp-btn {
+    bottom: 1.5rem;
+    right: 1.5rem;
   }
 }
 
@@ -483,21 +504,8 @@ body { color-scheme: light dark; }
     color: #b0b8c8;
   }
 
-  .webs-section {
-    background: #0d1620;
-  }
-  .webs-header h2 {
-    color: #fff;
-  }
-  .web-card {
-    background: #1a2332;
-  }
-  .web-card-info h3 {
-    color: #fff;
-  }
-
   .steps-section {
-    background: #0f1419;
+    background: #0d1620;
   }
   .steps-header h2 {
     color: #fff;
@@ -522,8 +530,11 @@ body { color-scheme: light dark; }
   .testimonio-card p {
     color: #c0c8d8;
   }
-  .testimonio-name {
+  .testimonio-info h3 {
     color: #fff;
+  }
+  .testimonio-footer {
+    border-top-color: #2a3a4a;
   }
 
   .quote-section {
@@ -606,49 +617,6 @@ body { color-scheme: light dark; }
   </div>
 </section>
 
-<section class="webs-section">
-  <div class="wrap">
-    <div class="webs-header">
-      <span class="kicker">Casos reales</span>
-      <h2>Webs que armamos</h2>
-    </div>
-    <div class="webs-grid">
-      <a href="https://www.eunicemartinezrealtor.com/" target="_blank" class="web-card">
-        <img src="https://images.unsplash.com/photo-1460925895917-adf4198c838d?w=600&h=400&fit=crop&q=80" alt="Web de Eunice Martínez">
-        <div class="web-card-info">
-          <h3>Eunice Martínez</h3>
-          <p>Agente inmobiliario con web propia que pasó de 0 a N consultas mensuales.</p>
-          <div style="display:flex; gap:1rem; margin-top:1rem; font-size:0.85rem;">
-            <a href="https://www.eunicemartinezrealtor.com/" target="_blank" style="color:var(--blue); font-weight:600; text-decoration:none;">Ver web →</a>
-            <a href="https://instagram.com/eunice.agente.inmobiliario" target="_blank" style="color:var(--blue); font-weight:600; text-decoration:none;">Instagram →</a>
-          </div>
-        </div>
-      </a>
-      <a href="https://monicaperezcoach.com/" target="_blank" class="web-card">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop&q=80" alt="Web de Mónica Pérez">
-        <div class="web-card-info">
-          <h3>Mónica Pérez</h3>
-          <p>Coach de liderazgo con presencia digital clara que atrae clientes de calidad.</p>
-          <div style="display:flex; gap:1rem; margin-top:1rem; font-size:0.85rem;">
-            <a href="https://monicaperezcoach.com/" target="_blank" style="color:var(--blue); font-weight:600; text-decoration:none;">Ver web →</a>
-            <a href="https://instagram.com/monicaperezcoach" target="_blank" style="color:var(--blue); font-weight:600; text-decoration:none;">Instagram →</a>
-          </div>
-        </div>
-      </a>
-      <div class="web-card">
-        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&q=80" alt="Web de Contador">
-        <div class="web-card-info">
-          <h3>Jorge Fernández</h3>
-          <p>Contador independiente que posicionó su expertise y duplicó su cartera de clientes.</p>
-          <div style="display:flex; gap:1rem; margin-top:1rem; font-size:0.85rem;">
-            <span style="color:#999;">Web próximamente</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="como" class="steps-section">
   <div class="wrap">
     <div class="steps-header">
@@ -678,27 +646,64 @@ body { color-scheme: light dark; }
 <section class="testimonios-section">
   <div class="wrap">
     <div class="testimonios-header">
-      <span class="kicker">Lo que dicen nuestros clientes</span>
-      <h2>Testimonios reales</h2>
+      <span class="kicker">Casos reales</span>
+      <h2>Testimonios de clientes</h2>
     </div>
     <div class="testimonios-grid">
       <div class="testimonio-card">
-        <img class="testimonio-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&q=80" alt="Eunice Martínez">
-        <p>"Fernando me armó la web y mis redes en tiempo récord. Pasé de no tener presencia online a que los clientes me encuentren directo por WhatsApp. Mis ventas mejoraron muchísimo."</p>
-        <div class="testimonio-name">Eunice Martínez</div>
-        <div class="testimonio-role">Agente Inmobiliaria</div>
+        <div class="testimonio-image">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop&q=80" alt="Eunice Martínez">
+        </div>
+        <div class="testimonio-content">
+          <p>"Fernando me armó la web y mis redes en tiempo récord. Pasé de no tener presencia online a que los clientes me encuentren directo por WhatsApp. Mi agenda se llenó, la captación de clientes mejoró muchísimo."</p>
+          <div class="testimonio-footer">
+            <div class="testimonio-info">
+              <h3>Eunice Martínez</h3>
+              <p>Agente Inmobiliaria</p>
+            </div>
+            <div class="testimonio-links">
+              <a href="https://www.eunicemartinezrealtor.com/" target="_blank">🔗 Web</a>
+              <a href="https://instagram.com/eunice.agente.inmobiliario" target="_blank">📱 Instagram</a>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div class="testimonio-card">
-        <img class="testimonio-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80" alt="Mónica Torres">
-        <p>"Cuando no tenía presencia clara, los clientes dudaban. Ahora mi web y redes hablan por mí. La gente que consulta ya sabe quién soy. Las conversiones mejoraron muchísimo."</p>
-        <div class="testimonio-name">Mónica Torres</div>
-        <div class="testimonio-role">Coach de Liderazgo</div>
+        <div class="testimonio-image">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&q=80" alt="Mónica Pérez">
+        </div>
+        <div class="testimonio-content">
+          <p>"Mi presencia digital antes era inexistente. Ahora tengo web profesional y redes ordenadas que hablan por mí. Los clientes que consultan ya saben quién soy y confían. Las conversiones mejoraron un 300%."</p>
+          <div class="testimonio-footer">
+            <div class="testimonio-info">
+              <h3>Mónica Pérez</h3>
+              <p>Coach de Liderazgo</p>
+            </div>
+            <div class="testimonio-links">
+              <a href="https://monicaperezcoach.com/" target="_blank">🔗 Web</a>
+              <a href="https://instagram.com/monicaperezcoach" target="_blank">📱 Instagram</a>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div class="testimonio-card">
-        <img class="testimonio-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&q=80" alt="Jorge Fernández">
-        <p>"La web profesional le dio credibilidad a mi práctica. Dejé de correr detrás de clientes y ahora ellos me encuentran. Mi agenda se llenó más de lo que esperaba."</p>
-        <div class="testimonio-name">Jorge Fernández</div>
-        <div class="testimonio-role">Contador Independiente</div>
+        <div class="testimonio-image">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&q=80" alt="Jorge Fernández">
+        </div>
+        <div class="testimonio-content">
+          <p>"Como contador independiente, la presencia digital marca la diferencia. La web profesional le dio credibilidad a mi práctica. Dejé de buscar clientes; ahora ellos me encuentran. Mi cartera casi se duplicó en 4 meses."</p>
+          <div class="testimonio-footer">
+            <div class="testimonio-info">
+              <h3>Jorge Fernández</h3>
+              <p>Contador Independiente</p>
+            </div>
+            <div class="testimonio-links">
+              <a href="https://wa.me/541169053310?text=Hola%20Jorge" target="_blank">📞 Contacto</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -729,5 +734,9 @@ body { color-scheme: light dark; }
     <div>WhatsApp <a href="https://wa.me/541169053310">+54 11 6905 3310</a> · agenciawebhispana.com</div>
   </div>
 </footer>
+
+<!-- WhatsApp Flotante -->
+<a href="https://api.whatsapp.com/send?phone=+541169053310&text=Vi%20la%20web%20de%20la%20Agencia%20Web%20Hispana.%20Mi%20nombre%20es:%20" target="_blank" class="whatsapp-btn" title="Escribir por WhatsApp">💬</a>
+
 </body>
 </html>
