@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Test: ¿Tu presencia digital vende o espanta clientes? | Agencia Web Hispana</title>
+<meta name="description" content="Test gratis para agentes inmobiliarios. Descubrí en 2 minutos si tu presencia digital te trae clientes o los espanta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="assets/logo-icon.png">
+<style>
+  body{background:radial-gradient(1000px 500px at 50% -10%,#20207a,transparent 60%),var(--navy);min-height:100vh;color:#fff}
+  .stage{width:min(680px,92%);margin:0 auto;padding:2.2rem 0 4rem}
+  .logo{display:flex;align-items:center;gap:.6rem;justify-content:center;color:#fff;font-weight:700;margin-bottom:1.6rem}
+  .logo .mark{width:38px;height:38px;object-fit:contain}
+  .logo small{display:block;font-size:.6rem;color:var(--yellow);letter-spacing:3px}
+  .panel{background:#fff;color:var(--ink);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow)}
+  .progress{height:8px;background:#e9ecf6;border-radius:999px;overflow:hidden;margin-bottom:1.4rem}
+  .progress > i{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:transform .3s ease}
+  .qnum{color:var(--blue);font-weight:700;font-size:.85rem;letter-spacing:.5px}
+  .qtext{font-size:1.3rem;font-weight:700;margin:.3rem 0 1.3rem;line-height:1.25;font-family:'Sora',sans-serif}
+  .opts{display:grid;gap:.7rem}
+  .opt{border:2px solid #e7eaf3;border-radius:14px;padding:1rem 1.1rem;cursor:pointer;font-weight:600;transition:.15s;background:#fff}
+  .opt:hover{border-color:var(--cyan);transform:translateY(-1px)}
+  .intro,.result{text-align:center}
+  .intro h1{color:#fff;font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;line-height:1.1;margin-bottom:.8rem}
+  .intro p{color:#cfd5ff;font-size:1.1rem;margin-bottom:1.8rem}
+  .field{display:grid;gap:.35rem;text-align:left;margin-bottom:.9rem}
+  .field label{font-weight:600;font-size:.9rem}
+  .field input{border:2px solid #e7eaf3;border-radius:12px;padding:.85rem 1rem;font-size:1rem;font-family:inherit}
+  .field input:focus{outline:none;border-color:var(--cyan)}
+  .badge{display:inline-block;padding:.4rem 1rem;border-radius:999px;font-weight:700;margin-bottom:.8rem}
+  .b-red{background:#fde8ec;color:#c0143a}.b-yellow{background:#fff6cc;color:#8a6d00}.b-green{background:#e2f7ea;color:#12794a}
+  .devo{text-align:left;white-space:pre-wrap;line-height:1.6;background:#f6f8fe;border-radius:14px;padding:1.3rem;margin:1.2rem 0}
+  .spin{width:34px;height:34px;border:4px solid #e7eaf3;border-top-color:var(--blue);border-radius:50%;animation:sp 1s linear infinite;margin:1.4rem auto}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .back{display:inline-block;margin-top:1.4rem;color:#cfd5ff;font-size:.9rem}
+  .small{font-size:.8rem;color:#8a90a6;margin-top:.6rem}
+</style>
+</head>
+<body>
+<div class="stage">
+  <a class="logo" href="/"><img class="mark" src="assets/logo-icon.png" alt="Agencia Web Hispana"><span>AGENCIA<small>WEB HISPANA</small></span></a>
+  <div id="app"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

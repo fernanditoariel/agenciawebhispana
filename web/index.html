@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agencia Web Hispana | Presencia Digital para Profesionales Independientes</title>
+<meta name="description" content="Web + marketing + estrategia para coaches, terapeutas, agentes inmobiliarios, pymes y emprendedores. Presencia digital que vende.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="assets/logo-icon.png">
+<meta property="og:title" content="Agencia Web Hispana | Presencia Digital Moderna">
+<meta property="og:description" content="Web + redes + estrategia. Para coaches, terapeutas, agentes, pymes y emprendedores.">
+<meta property="og:image" content="https://agenciawebhispana.com/assets/logo-icon.png">
+<meta property="og:type" content="website">
+<style>
+body { color-scheme: light dark; }
+
+/* Override hero for generic home */
+.hero { background: linear-gradient(135deg, var(--navy) 0%, #0a0a1f 40%, var(--blue) 100%);
+  color: #fff; padding: 5rem 0 6rem; position: relative; overflow: hidden; min-height: 100vh;
+  display: flex; align-items: center; }
+.hero .wrap { display: grid; grid-template-columns: 1.2fr 0.95fr; gap: 3.5rem; align-items: center; }
+.hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.05; font-weight: 800;
+  letter-spacing: -0.5px; margin-bottom: 1rem; }
+.hero h1 .hl { background: linear-gradient(90deg, var(--yellow), var(--cyan));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero .lead { font-size: 1.18rem; color: #dfe4ff; margin: 1.3rem 0 2.2rem; line-height: 1.6;
+  max-width: 45ch; }
+.hero .trust { font-size: 0.9rem; color: #b9c1ee; }
+.hero-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 20px; padding: 2rem; backdrop-filter: blur(8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+.hero-card h3 { color: var(--yellow); font-size: 1.1rem; margin-bottom: 1.2rem; font-weight: 700; }
+.hero-card ul { list-style: none; display: grid; gap: 0.9rem; }
+.hero-card li { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.95rem;
+  color: #eef1ff; line-height: 1.5; }
+.check { color: var(--yellow); font-weight: 900; font-size: 1.1rem; }
+
+/* Nichos section - generic */
+.nichos-section { padding: 5rem 0; background: var(--white); }
+.nichos-header { text-align: center; margin-bottom: 3.5rem; }
+.nichos-header .kicker { color: var(--blue); font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; font-size: 0.75rem; margin-bottom: 0.5rem; display: block; }
+.nichos-header h2 { font-size: clamp(2rem, 3vw, 2.6rem); font-weight: 800;
+  color: var(--ink); letter-spacing: -0.5px; line-height: 1.1; }
+
+.nichos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+.nicho-card { background: var(--white); border: 1px solid #eef0f6; border-radius: 18px;
+  padding: 2.2rem; box-shadow: 0 8px 20px rgba(19,19,71,0.06);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+  position: relative; overflow: hidden; cursor: pointer; text-decoration: none; display: flex;
+  flex-direction: column; color: inherit; }
+.nicho-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(19,19,71,0.12); }
+.nicho-card .ico { font-size: 2.6rem; margin-bottom: 1rem; }
+.nicho-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--ink); }
+.nicho-card p { color: #6b7280; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;
+  flex-grow: 1; }
+.nicho-card .arrow { display: inline-block; color: var(--yellow); font-weight: 800;
+  transition: transform 0.3s; }
+.nicho-card:hover .arrow { transform: translateX(4px); }
+
+/* Steps section */
+.steps-section { padding: 5rem 0; background: #f6f8fe; }
+.steps-header { text-align: center; margin-bottom: 3.5rem; }
+.steps-header .kicker { color: var(--blue); font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; font-size: 0.75rem; margin-bottom: 0.5rem; display: block; }
+.steps-header h2 { font-size: clamp(2rem, 3vw, 2.6rem); font-weight: 800;
+  color: var(--ink); letter-spacing: -0.5px; line-height: 1.1; }
+
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 3rem; }
+.step { text-align: center; }
+.step-num { display: inline-flex; align-items: center; justify-content: center;
+  width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff; font-size: 2rem; font-weight: 800; margin-bottom: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); }
+.step h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--ink); }
+.step p { color: #6b7280; font-size: 0.95rem; line-height: 1.6; max-width: 32ch; margin: 0 auto; }
+
+/* Quote section */
+.quote-section { padding: 4rem 0; background: var(--white); }
+.quote { background: var(--navy); color: #fff; border-radius: 20px; padding: 3rem;
+  text-align: center; box-shadow: 0 20px 40px rgba(19,19,71,0.15); }
+.quote p { font-size: 1.35rem; font-style: italic; max-width: 48ch; margin: 0 auto 1.3rem;
+  line-height: 1.6; }
+.quote .who { color: var(--yellow); font-weight: 700; font-size: 0.95rem; }
+
+/* CTA section */
+.cta-section { padding: 4rem 0; background: var(--white); }
+.ctaband { background: linear-gradient(90deg, var(--blue), var(--cyan));
+  color: #fff; text-align: center; border-radius: 20px; padding: 3.5rem 2rem;
+  box-shadow: 0 20px 50px rgba(30, 99, 214, 0.25); }
+.ctaband h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800;
+  margin-bottom: 0.8rem; line-height: 1.2; }
+.ctaband p { margin-bottom: 2rem; color: #eaf6ff; font-size: 1.05rem; max-width: 55ch;
+  margin-left: auto; margin-right: auto; }
+
+/* Navigation */
+.nav-desktop { display: flex; gap: 1.8rem; align-items: center; }
+.nav-desktop a { color: #fff; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+
+/* Responsive */
+@media (max-width: 820px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .nichos-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .nav-desktop { display: none; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .nichos-section { background: #0f1419; }
+  .nichos-header h2 { color: #fff; }
+  .nicho-card { background: #1a2332; border-color: #2a3a4a; }
+  .nicho-card h3 { color: #fff; }
+  .nicho-card p { color: #b0b8c8; }
+
+  .steps-section { background: #0d1620; }
+  .steps-header h2 { color: #fff; }
+  .step h3 { color: #fff; }
+  .step p { color: #b0b8c8; }
+
+  .quote-section { background: #0f1419; }
+  .cta-section { background: #0f1419; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/">
+      <img class="mark" src="assets/logo-icon.png" alt="Agencia Web Hispana">
+      <span>AGENCIA<small>WEB HISPANA</small></span>
+    </a>
+    <nav class="nav-desktop">
+      <a href="#nichos">Para vos</a>
+      <a href="#como">Cómo funciona</a>
+      <a class="btn btn-yellow" href="inmobiliaria.html">Ver landing</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" style="background: rgba(245,224,0,0.15); color: var(--yellow); font-weight: 600;
+        padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.8rem; letter-spacing: 0.5px;
+        display: inline-block; margin-bottom: 1.2rem;">Presencia Digital para Profesionales</span>
+      <h1>Tu negocio merece una presencia que venda. <span class="hl">De verdad.</span></h1>
+      <p class="lead">Web profesional, redes ordenadas y contenido con estrategia. Todo armado para que los clientes te encuentren y cierren.</p>
+      <div class="cta-row">
+        <a class="btn btn-yellow btn-lg" href="#nichos">Mirá tu opción</a>
+        <a class="btn btn-ghost btn-lg" href="#como">Cómo funciona</a>
+      </div>
+      <p class="trust">✓ Diseño profesional  ✓ Hosting incluido  ✓ Soporte en toda LATAM</p>
+    </div>
+    <div class="hero-card">
+      <h3>Esto es lo que hacemos</h3>
+      <ul>
+        <li><span class="check">✓</span><span><b>Web personalizada</b> que convierte</span></li>
+        <li><span class="check">✓</span><span><b>Dominio + hosting</b> listos</span></li>
+        <li><span class="check">✓</span><span><b>Redes optimizadas</b> con estrategia</span></li>
+        <li><span class="check">✓</span><span><b>Contenido mensual</b> que atrae</span></li>
+        <li><span class="check">✓</span><span><b>Seguimiento real</b>, sin sorpresas</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="nichos" class="nichos-section">
+  <div class="wrap">
+    <div class="nichos-header">
+      <span class="kicker">Para cada profesional</span>
+      <h2>Servicios por nicho</h2>
+    </div>
+    <div class="nichos-grid">
+      <a href="inmobiliaria.html" class="nicho-card">
+        <div class="ico">🏡</div>
+        <h3>Agentes Inmobiliarios</h3>
+        <p>Web + redes + estrategia para vender propiedades. De invisible online a que te busquen los clientes.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#coaches" class="nicho-card">
+        <div class="ico">🧠</div>
+        <h3>Coaches & Terapeutas</h3>
+        <p>Presencia que genera confianza real. Atrae clientes que buscan exactamente tu especialidad.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#pymes" class="nicho-card">
+        <div class="ico">🚀</div>
+        <h3>Pymes & Emprendedores</h3>
+        <p>Presencia digital que crece con vos. De local a online sin complicaciones ni sorpresas.</p>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="como" class="steps-section">
+  <div class="wrap">
+    <div class="steps-header">
+      <span class="kicker">El proceso es simple</span>
+      <h2>Cómo funciona</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Diagnóstico</h3>
+        <p>Entendemos tu negocio, tus clientes, qué te hace único y cuál es tu mayor bloqueo ahora.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Armamos tu presencia</h3>
+        <p>Web + dominio + redes + primeros contenidos. Todo listo y viviendo en producción en 2-3 semanas.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Seguimiento mensual</h3>
+        <p>Contenido nuevo, ajustes basados en datos reales y optimizaciones. Tu presencia crece con vos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="wrap">
+    <div class="quote">
+      <p>"Fernando me armó la web y mis redes en tiempo récord. Pasé de no tener presencia online a que los clientes me encuentren directo por WhatsApp."</p>
+      <div class="who">Eunice Martínez / Agente de Bienes Raíces</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap">
+    <div class="ctaband">
+      <h2>¿Vos también querés presencia que venda?</h2>
+      <p>Empezá gratis. Hacé el diagnóstico de tu nicho y descubrí exactamente dónde estás dejando plata en la mesa.</p>
+      <a class="btn btn-yellow btn-lg" href="inmobiliaria.html">Ver landing de ejemplo →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><img class="mark" src="assets/logo-icon.png" alt=""><span>AGENCIA<small>WEB HISPANA</small></span></div>
+    <div>WhatsApp <a href="https://wa.me/541169053310">+54 11 6905 3310</a> · agenciawebhispana.com</div>
+  </div>
+</footer>
+</body>
+</html>
